@@ -1,0 +1,18 @@
+logger:
+  level: debug
+  format: json
+
+server:
+  addr: 127.0.0.1
+  port: 7080
+
+client:
+  server:
+    addr: 127.0.0.1
+    port: 7080
+
+services:
+  - name: nas
+    local_ip: 192.168.4.3
+    local_port: 5000
+    remote_port: 7081
