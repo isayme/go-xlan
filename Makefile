@@ -1,9 +1,9 @@
 .PHONE: devs, devc
 devs:
-	CONF_FILE_PATH=./config/dev.yaml go run cmd/server/main.go
+	CONF_FILE_PATH=./config/dev.yaml go run main.go server
 
 devc:
-	CONF_FILE_PATH=./config/dev.yaml go run cmd/client/main.go
+	CONF_FILE_PATH=./config/dev.yaml go run main.go client
 
 APP_NAME := isayme/go-xlan
 APP_VERSION := $(shell git describe --tags --always)
@@ -16,11 +16,7 @@ build:
 	go build -ldflags "-X ${APP_PKG}/xlan/util.Version=${APP_VERSION} \
 	-X ${APP_PKG}/xlan/util.BuildTime=${BUILD_TIME} \
 	-X ${APP_PKG}/xlan/util.GitRevision=${GIT_REVISION}" \
-	-o ./dist/server cmd/server/main.go
-	go build -ldflags "-X ${APP_PKG}/xlan/util.Version=${APP_VERSION} \
-	-X ${APP_PKG}/xlan/util.BuildTime=${BUILD_TIME} \
-	-X ${APP_PKG}/xlan/util.GitRevision=${GIT_REVISION}" \
-	-o ./dist/client cmd/client/main.go
+	-o ./dist/xlan main.go
 
 .PHONY: image
 image:

@@ -1,7 +1,6 @@
 FROM alpine
 WORKDIR /app
 
-COPY ./dist/server /app/server
-COPY ./dist/client /app/client
+COPY ./dist/xlan /app/xlan
 
-CMD ["/app/server"]
+CMD ["/app/xlan", "server"]

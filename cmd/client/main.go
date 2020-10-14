@@ -1,12 +1,10 @@
-package main
+package client
 
 import (
 	"context"
 	"encoding/json"
-	"flag"
 	"fmt"
 	"net"
-	"os"
 	"time"
 
 	"github.com/isayme/go-logger"
@@ -16,16 +14,8 @@ import (
 	"golang.org/x/sync/errgroup"
 )
 
-var showVersion = flag.Bool("v", false, "show version")
-
-func main() {
-	flag.Parse()
-
-	if *showVersion {
-		util.PrintVersion()
-		os.Exit(0)
-	}
-
+// Run run client
+func Run() {
 	config := conf.Get()
 	client := NewClient(config)
 

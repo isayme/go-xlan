@@ -1,6 +1,5 @@
 logger:
   level: debug
-  format: json
 
 server:
   addr: 127.0.0.1
