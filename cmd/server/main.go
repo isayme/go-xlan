@@ -2,8 +2,10 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"net"
+	"os"
 	"sync"
 	"time"
 
@@ -13,7 +15,16 @@ import (
 	"github.com/isayme/go-xlan/xlan/util"
 )
 
+var showVersion = flag.Bool("v", false, "show version")
+
 func main() {
+	flag.Parse()
+
+	if *showVersion {
+		util.PrintVersion()
+		os.Exit(0)
+	}
+
 	config := conf.Get()
 
 	server := NewServer(config)
