@@ -11,7 +11,7 @@ ARG GIT_REVISION
 ENV GIT_REVISION ${GIT_REVISION}
 
 COPY . .
-RUN GO111MODULE=on GOPROXY=https://goproxy.cn,direct go mod download \
+RUN GO111MODULE=on GOPROXY=https://goproxy.io,direct go mod download \
   && go build -ldflags "-X github.com/isayme/go-xlan/xlan/util.Name=${APP_NAME} \
   -X github.com/isayme/go-xlan/xlan/util.Version=${APP_VERSION} \
   -X github.com/isayme/go-xlan/xlan/util.BuildTime=${BUILD_TIME} \
